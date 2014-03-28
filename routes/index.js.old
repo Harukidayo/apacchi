@@ -1,0 +1,47 @@
+
+/*
+ * GET home page.
+ */
+
+
+
+
+
+var AptSchema = mongoose.Schema({
+    name: String,
+    rent: String,
+    street: String
+});
+var Apt = mongoose.model('apartment', AptSchema);
+
+//var apartmentsMG = mongoose.get('rent');
+//var db = mongoose.connection;
+
+
+exports.index = function(req, res){
+  res.render('index', { title: 'jjlkjlk' });
+};
+
+exports.list = function(req, res){
+	var docs = [{name:'test', date: 3243}, {whatever:'any object'}];
+	//Apt.find({}, function(err, docs) {
+	//	if (err) throw err;
+	//res.json(Apt.find({"name": "Greentree Village"}));
+	//var aho = db.apartments.find({"name": "Greentree Village"});
+	//res.render('list',{title: aho.text()});
+
+
+	//res.json(Apt.findOne({name: "Greentree Village"}));
+
+	//returns Object
+	var findResult = db_rent.findOne({name: 'Greentree Village'});
+	
+	res.render('list',{title: findResult});
+
+	//this works
+	//res.render('list', {title: 'Dayooon'});
+	
+
+
+};
+
